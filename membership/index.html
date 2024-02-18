@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/icon_bg.png" type="image/x-icon">
+    <script src="../js/cdn.jsdelivr.js"></script>
+    <link rel="stylesheet" href="../css/style03.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>بررسی پرداخت</title>
+    <script src="../js/global.js"></script>
+    <link rel="stylesheet" href="../css/style05.css">
+</head>
+<body>
+<a id="backButton" class="back-link"><i class="fas fa-arrow-left"></i>بازگشت </a>
+<div class="container">
+    <img src="../images/icon_bg.png" alt="Logo" id="logo">
+    <label>: کد را وارد کنید</label>
+    <div style="margin-top: 20px">
+        <input type="text" id="digit1" maxlength="1" oninput="focusNext(this, 'digit2')">
+        <input type="text" id="digit2" maxlength="1" oninput="focusNext(this, 'digit3')">
+        <input type="text" id="digit3" maxlength="1" oninput="focusNext(this, 'digit4')">
+        <input type="text" id="digit4" maxlength="1" oninput="focusNext(this, 'digit5')">
+        <input type="text" id="digit5" maxlength="1" oninput="checkAndFocus(this, 'checkButton')">
+    </div>
+
+    <button class="resend" onclick="resendCode()" disabled>ارسال مجدد</button>
+    <button id="checkButton" onclick="checkPayment()">بررسی کد</button>
+
+    <div id="timer">00 : <span id="timerCount">60</span></div>
+
+    <div id="result"></div>
+</div>
+<script src="../js/membership.js"></script>
+</body>
+</html>

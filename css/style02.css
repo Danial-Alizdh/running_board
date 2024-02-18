@@ -1,0 +1,296 @@
+@font-face {
+    font-family: "B Nazanin";
+    src: url("./font/b_nazanin.ttf");
+}
+
+body {
+    font-family: "B Nazanin", sans-serif;
+    background-color: #e5eefa;
+    /*background-image: url("../images/bg6.jpg");*/
+    margin: 0;
+    padding: 0;
+}
+
+.add {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-decoration: none;
+    color: #000000; /* Text color */
+    font-size: 14px;
+    font-weight: bold;
+    /*display: flex;*/
+    display: none;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.add i {
+    margin-right: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#backButton {
+    color: #000000; /* Text color */
+    position: fixed;
+    top: 10px; /* Adjust this value to set the desired top position */
+    left: 10px; /* Adjust this value to set the desired left position */
+    text-decoration: none; /* Remove underlines from the link text */
+    /*padding: 5px 10px; !* Add padding to the button (optional) *!*/
+    /*background-color: #00A0D1;*/
+    /*border-radius: 5px;*/
+}
+
+/* Style the back icon */
+#backButton .fas {
+    margin-right: 2px; /* Add some spacing between the text and icon (optional) */
+    font-size: 12px; /* Adjust the icon size */
+}
+
+.container {
+    text-align: center;
+    margin: 30px 20px 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.coach-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.coach {
+    background-color: #12a5d2;
+    background-image: url("../images/bg6.jpg");
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+}
+
+.coach img {
+    border-radius: 5px;
+    max-width: 100px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.coach h2 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #000000;
+}
+
+.social-media {
+    margin-top: 10px;
+}
+
+.social-media a {
+    text-decoration: none;
+    color: #007bff;
+    margin: 0 10px;
+}
+
+.coach p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #282828;
+}
+
+.gym-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gym {
+    background-color: #12a5d2;
+    background-image: url("../images/bg6.jpg");
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+}
+
+.gym img {
+    border-radius: 5px;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.gym h2 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #000000;
+}
+
+.gym p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #282828;
+}
+
+.gym a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #3800de;
+    font-weight: bold;
+}
+
+.news-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.news {
+    background-color: #ffffff;
+    background-image: url("../images/bg6.jpg");
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    padding: 20px;
+    text-align: right;
+    width: 300px;
+}
+
+.news img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.news h2 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #000000;
+}
+
+.news p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #282828;
+}
+
+.actor-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.actor {
+    background-color: #12a5d2;
+    background-image: url("../images/bg6.jpg");
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+}
+
+.actor h2 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #000000;
+}
+
+.actor p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #282828;
+}
+
+.actor img {
+    border-radius: 5px;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.star-rating {
+    margin-top: -10px;
+    font-size: 28px;
+    color: #fffa00;
+}
+
+.star {
+    color: #cecece;
+}
+
+/* Style for the checkboxes */
+.swal2-checkbox {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.swal2-input {
+    margin-right: 10px;
+}
+
+.swal2-label {
+    font-size: 16px;
+}
+
+/* Style for the SweetAlert dialog */
+.swal2-popup {
+    width: 400px;
+    text-align: center;
+}
+
+/* Style for the dialog title */
+.swal2-title {
+    font-size: 20px;
+}
+
+/* Style for the confirm and cancel buttons */
+.swal2-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.swal2-confirm {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.swal2-confirm:hover {
+    background-color: #45a049;
+}
+
+.swal2-cancel {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.swal2-cancel:hover {
+    background-color: #d32f2f;
+}
+
+/* Style for the custom confirm button */
+.custom-confirm-button {
+    font-family: "B Nazanin", sans-serif; /* Replace with your desired font */
+    font-size: 18px; /* Adjust the font size as needed */
+    /* Add any other styles you want */
+}
