@@ -104,6 +104,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
 // Call the initializeGame function to load the game elements
-    initializeGame();
+    if (localStorage.getItem('hasCredit')) {
+        initializeGame();
+    } else {
+        Swal.fire({
+            icon: "info",
+            title: 'اعتبار شما کافی نیست، لطفا به سایت اصلی ما مراجعه کنید.',
+            showConfirmButton: !1,
+            timer: 2000
+        });
+    }
 
 });

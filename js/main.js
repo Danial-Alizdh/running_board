@@ -17,6 +17,7 @@ async function updateUI() {
             usernameElement.style.display = 'inline-block';
 
             usernameElement.textContent = data.username;
+            localStorage.setItem('email', data.email);
             usernameElement.addEventListener('click', () => {
                 if (data.admin) {
                     window.location.href = '../admin'

@@ -1,18 +1,20 @@
 var phoneNumber;
-var timerCount = 60; // Set the initial timer value in seconds
+var timerMinutes = 2;
+var timerSeconds = 0;
 
 async function sendInfo() {
     try {
         let formData = new FormData();
         formData.append('login_token', localStorage.getItem('login_token'));
+        formData.append('user_email', localStorage.getItem('email'));
         let response = await fetch(AUTH_API + "/user_information/", {
             method: 'POST',
             body: formData,
         });
         const data = await response.json();
         if (response.status === 200) {
-            if (data.data !== undefined) {
-                phoneNumber = data.data.phone_number;
+            if (data) {
+                phoneNumber = data['phone_number'];
                 try {
                     let formData = new FormData();
                     formData.append('mobile', phoneNumber);
@@ -21,11 +23,10 @@ async function sendInfo() {
                         body: formData,
                     });
                     const data = await response.json();
-                    if (response.status !== 200) {
+                    if (!data.status) {
                         Swal.fire({
                             icon: "error",
                             title: 'شماره شما ثبت نشده است',
-                            text: data.errors.message,
                             showConfirmButton: !1,
                             timer: 2000
                         });
@@ -80,10 +81,12 @@ async function checkPayment() {
                 body: formData,
             });
             const data = await response.json();
-            if (response.status === 200) {
+            console.log(data)
+            if (response.status) {
                 if (data.data !== undefined) {
                     var name = data.data.name;
                     var hasCredit = data.data.hasCredit;
+                    localStorage.setItem('hasCredit', hasCredit);
                     var expired = data.data.expired;
                     stopTimer();
                     // Navigate to another page after 2 seconds (adjust as needed)
@@ -120,7 +123,7 @@ async function checkPayment() {
                                 timer: 2000
                             });
                         }
-                    }, 1000);
+                    }, 2000);
                 }
             } else {
                 resultDiv.innerHTML = 'کد وارد شده صحیح نمی‌باشد';
@@ -143,11 +146,11 @@ async function checkPayment() {
 
 function resendCode() {
     // Add logic to resend the code (this is just a placeholder)
-    alert('Code resent!');
     document.querySelector('button.resend').setAttribute('disabled', 'disabled');
     // Reset the timerCount and enable the timer
-    timerCount = 60; // Set the initial timer value in seconds
-    document.getElementById('timerCount').textContent = timerCount;
+    timerMinutes = 2;
+    timerSeconds = 0;
+    updateTimerDisplay();
     document.getElementById('timer').classList.remove('red');
     // Start the timer countdown again
     timerInterval = setInterval(enableResend, 1000);
@@ -158,16 +161,33 @@ function stopTimer() {
 }
 
 function enableResend() {
-    timerCount--;
-    document.getElementById('timerCount').textContent = formatTimer(timerCount);
-
-    if (timerCount <= 0) {
-        clearInterval(timerInterval);
-        // Disable the "Re-send" button
-        document.querySelector('button.resend').removeAttribute('disabled');
-    } else if (timerCount <= 10) {
-        document.getElementById('timer').classList.add('red');
+    if (timerSeconds === 0) {
+        if (timerMinutes === 0) {
+            clearInterval(timerInterval);
+            // Disable the "Re-send" button
+            document.querySelector('button.resend').removeAttribute('disabled');
+            // Change button color back to blue
+            document.querySelector('button.resend').style.backgroundColor = '#2196f3';
+        } else {
+            timerMinutes--;
+            timerSeconds = 59;
+        }
+    } else {
+        timerSeconds--;
     }
+
+    updateTimerDisplay();
+
+    if (timerMinutes === 0 && timerSeconds <= 10) {
+        document.getElementById('timer').classList.add('red');
+    } else {
+        document.getElementById('timer').classList.remove('red');
+    }
+}
+
+function updateTimerDisplay() {
+    document.getElementById('timerMinutes').textContent = formatTimer(timerMinutes);
+    document.getElementById('timerSeconds').textContent = formatTimer(timerSeconds);
 }
 
 function formatTimer(count) {

@@ -153,6 +153,15 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
     }
 
-    initializeClassroom();
+    if (localStorage.getItem('hasCredit')) {
+        initializeClassroom();
+    } else {
+        Swal.fire({
+            icon: "info",
+            title: 'اعتبار شما کافی نیست، لطفا به سایت اصلی ما مراجعه کنید.',
+            showConfirmButton: !1,
+            timer: 2000
+        });
+    }
 
 });

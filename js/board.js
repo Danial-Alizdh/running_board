@@ -162,6 +162,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
 // Call the initializeBoard function to load the board elements
-    initializeBoard();
+    if (localStorage.getItem('hasCredit')) {
+        initializeBoard();
+    } else {
+        Swal.fire({
+            icon: "info",
+            title: 'اعتبار شما کافی نیست، لطفا به سایت اصلی ما مراجعه کنید.',
+            showConfirmButton: !1,
+            timer: 2000
+        });
+    }
 
 });

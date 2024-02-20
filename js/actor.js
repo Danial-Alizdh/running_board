@@ -178,6 +178,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
 // Call the initializeCoaches function to load the actor elements
-    initializeCoaches();
+    if (localStorage.getItem('hasCredit')) {
+        initializeCoaches();
+    } else {
+        Swal.fire({
+            icon: "info",
+            title: 'اعتبار شما کافی نیست، لطفا به سایت اصلی ما مراجعه کنید.',
+            showConfirmButton: !1,
+            timer: 2000
+        });
+    }
 
 });
