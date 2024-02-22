@@ -1020,7 +1020,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         let selectLabel = document.createElement("label");
         selectLabel.style.marginRight = "10px";
-        selectLabel.textContent = data.role === 'office_manager' ? 'انتخاب اداره : ' : data.role === 'office_expert' ? 'انتخاب اداره : ' : data.role === 'board_authorities' ? 'انتخاب هیئت : ' : '';
+        selectLabel.textContent = data.role === 'board_authorities' ? 'انتخاب هیئت : ' : '';
         selectContainer.appendChild(selectLabel);
 
         let selectElement = document.createElement("select");
@@ -1146,7 +1146,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             phoneNumberInput.value = originData.phone_number;
             profileImagePreview.src = originData.image_profile === null ? '../images/no_pic.png' : (AUTH_API + originData.image_profile);
             bio.value = originData.bio;
-            role.textContent = originData.role === 'simple_user' ? 'کاربر عادی' : (originData.role === 'coach' ? 'مربی' : (originData.role === 'gym_manager' ? 'سالن‌دار' : (originData.role === 'actor' ? 'قهرمان' : (originData.role === 'office_admin' ? 'ادمین اداره' : (originData.role === 'office_manager' ? 'مدیر اداره' : (originData.role === 'office_expert' ? 'کارشناس اداره' : (originData.role === 'board_admin' ? 'ادمین هیئت' : (originData.role === 'board_authorities' ? 'مسئول هیئت' : 'نقش کاربر تعریف نشده است'))))))));
+            role.textContent = originData.role === 'simple_user' ? 'کاربر عادی' : (originData.role === 'coach' ? 'مربی' : (originData.role === 'gym_manager' ? 'سالن‌دار' : (originData.role === 'actor' ? 'قهرمان' : (originData.role === 'board_admin' ? 'ادمین هیئت' : (originData.role === 'board_authorities' ? 'مسئول هیئت' : 'نقش کاربر تعریف نشده است')))))
             pre_process(originData);
         } else {
             Swal.fire({
@@ -1266,7 +1266,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     changeRole.addEventListener('click', function (event) {
-        const options = ['مربی‌گری', 'سالن‌دار', 'قهرمان', 'مدیر اداره', 'کارشناس اداره', 'مسئول هیئت', 'ادمین اداره', 'ادمین هیئت'];
+        const options = ['مربی‌گری', 'سالن‌دار', 'قهرمان', 'مسئول هیئت', 'ادمین هیئت'];
         const radioButtons = options
             .map((option, index) => {
                 return `
@@ -1297,7 +1297,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }).then((result) => {
             if (result.isConfirmed) {
                 // saveData.append('role', result.value === 'مربی‌گری‌' ? 'coach' : result.value === 'سالن‌دار' ? 'gym_manager' : result.value === 'قهرمان' ? 'actor' : 'simple_user');
-                originData['role'] = result.value === 'مربی‌گری' ? 'coach' : result.value === 'سالن‌دار' ? 'gym_manager' : result.value === 'قهرمان' ? 'actor' : result.value === 'ادمین اداره' ? 'office_admin' : result.value === 'ادمین هیئت' ? 'board_admin' : result.value === 'مدیر اداره' ? 'office_manager' : result.value === 'کارشناس اداره' ? 'office_expert' : result.value === 'مسئول هیئت' ? 'board_authorities' : 'simple_user';
+                originData['role'] = result.value === 'مربی‌گری' ? 'coach' : result.value === 'سالن‌دار' ? 'gym_manager' : result.value === 'قهرمان' ? 'actor' : result.value === 'ادمین هیئت' ? 'board_admin' : result.value === 'مسئول هیئت' ? 'board_authorities' : 'simple_user';
                 role.textContent = result.value;
                 if (result.value === 'مربی‌گری') {
                     addCoachElements({'document_image': null,
@@ -1325,14 +1325,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                         'location': null,
                         'auth': null,
                     });
-                } else if (result.value === 'ادمین اداره') {
-                    addOfficeElements({
-                        'name': null,
-                        'location': null,
-                        'auth': null,
-                        'manager': null,
-                    })
-                } else if (result.value === 'مدیر اداره' || result.value === 'کارشناس اداره' || result.value === 'مسئول هیئت') {
+                } else if (result.value === 'مسئول هیئت') {
                     addAuthElements({
                         'role': originData['role'],
                         'place': null

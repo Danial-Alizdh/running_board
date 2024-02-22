@@ -62,7 +62,7 @@ function displayUsers(users) {
 
         const new_role = document.createElement("p");
         new_role.textContent = `درخواست برای : ${
-            user.role === 'simple_user' ? 'کاربر عادی' : (user.role === 'coach' ? 'مربی' : (user.role === 'gym_manager' ? 'سالن‌دار' : (user.role === 'actor' ? 'قهرمان' : (user.role === 'office_admin' ? 'ادمین اداره' : (user.role === 'board_admin' ? 'ادمین هیئت' : 'نقش کاربر تعریف نشده است')))))        
+            user.role === 'simple_user' ? 'کاربر عادی' : (user.role === 'coach' ? 'مربی' : (user.role === 'gym_manager' ? 'سالن‌دار' : (user.role === 'actor' ? 'قهرمان' : (user.role === 'board_admin' ? 'ادمین هیئت' : 'نقش کاربر تعریف نشده است'))))        
         }`;
         userDetailsDiv.appendChild(new_role);
 
