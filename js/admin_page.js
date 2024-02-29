@@ -68,7 +68,7 @@ function displayUsers(users) {
 
         userDiv.appendChild(userDetailsDiv);
 
-        if (user.role !== 'office_admin' && user.role !== 'board_admin') {
+        if (user.role !== 'board_admin') {
             // Create a div for the user's license picture
             const licensePicDiv = document.createElement("div");
             licensePicDiv.classList.add("license-pic");
@@ -232,7 +232,6 @@ async function fetchUsers(role) {
 fetchUsers('coach');
 fetchUsers('gym_manager');
 fetchUsers('actor');
-fetchUsers('office_admin');
 fetchUsers('board_admin');
 
 document.addEventListener("DOMContentLoaded",  function () {
