@@ -6,7 +6,7 @@
 body {
     font-family: "B Nazanin", sans-serif;
     background-color: #e5eefa;
-    /*background-image: url("../images/bg6.jpg");*/
+    /*background-image: url("../images/bg1.jpg");*/
     margin: 0;
     padding: 0;
 }
@@ -66,7 +66,7 @@ h1 {
 
 .coach {
     background-color: #12a5d2;
-    background-image: url("../images/bg6.jpg");
+    background-image: url("../images/bg1.jpg");
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     margin: 10px;
@@ -113,7 +113,7 @@ h1 {
 
 .gym {
     background-color: #12a5d2;
-    background-image: url("../images/bg6.jpg");
+    background-image: url("../images/bg1.jpg");
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     margin: 10px;
@@ -158,7 +158,7 @@ h1 {
 
 .news {
     background-color: #ffffff;
-    background-image: url("../images/bg6.jpg");
+    background-image: url("../images/bg1.jpg");
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     margin: 10px;
@@ -193,7 +193,7 @@ h1 {
 
 .actor {
     background-color: #12a5d2;
-    background-image: url("../images/bg6.jpg");
+    background-image: url("../images/bg1.jpg");
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     margin: 10px;
