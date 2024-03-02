@@ -18,6 +18,7 @@ async function updateUI() {
 
             usernameElement.textContent = data.username;
             localStorage.setItem('email', data.email);
+            localStorage.setItem('hasCredit', data.hasCredit);
             usernameElement.addEventListener('click', () => {
                 if (data.admin) {
                     window.location.href = '../admin'
